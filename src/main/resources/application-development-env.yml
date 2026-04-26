@@ -2,6 +2,7 @@ spring:
   security:
     oauth2:
       authorizationserver:
+        issuer: http://shop-authorization-server:8081
         client:
           shop-test-client:
             registration:
