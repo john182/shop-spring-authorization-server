@@ -1,0 +1,50 @@
+### Variáveis — edite aqui antes de executar
+# @no-redirect
+
+@host = http://127.0.0.1:8081
+@clientCredentials = Basic c2hvcC10ZXN0OnRlc3RpbmcxMjM=
+@redirectUri = http://127.0.0.1:4200/login/oauth2/code/oidc-client
+@code = string
+@codeVerifier = string
+@refreshToken = string
+@scope = products:read products:write
+
+###
+# --- Authorization Code (PKCE) ---
+### OAuth2 Token - authorization_code
+POST {{host}}/oauth2/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: {{clientCredentials}}
+
+grant_type=authorization_code
+&code={{code}}
+&redirect_uri={{redirectUri}}
+&code_verifier={{codeVerifier}}
+
+###
+# --- Refresh Token ---
+### OAuth2 Token - refresh_token
+POST {{host}}/oauth2/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: {{clientCredentials}}
+
+grant_type=refresh_token
+&refresh_token={{refreshToken}}
+&scope={{scope}}
+
+###
+# --- Client Credentials ---
+### OAuth2 Token - client_credentials
+POST {{host}}/oauth2/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: {{clientCredentials}}
+
+grant_type=client_credentials
+&scope={{scope}}
+
+
+
+
