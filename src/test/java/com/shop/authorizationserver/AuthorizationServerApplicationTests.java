@@ -1,4 +1,4 @@
-package com.shop.authorization_server;
+package com.shop.authorizationserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
